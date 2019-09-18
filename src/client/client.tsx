@@ -1,5 +1,5 @@
+import * as firebase from 'firebase/app';
 import App from '../components/App';
-import firebase from 'firebase';
 import firebaseConfig from '../firebaseConfig';
 import promiseMiddleware from 'redux-promise-middleware';
 import React from 'react';
@@ -10,6 +10,7 @@ import { IStore } from '../types';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import 'firebase/firestore';
 
 declare global {
     interface Window {

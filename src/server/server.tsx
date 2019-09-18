@@ -1,21 +1,22 @@
 import * as express from 'express';
+import * as firebase from 'firebase/app';
 import * as path from 'path';
 import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import App from '../components/App';
+import compression from 'compression';
 import cookiesMiddleware from 'universal-cookie-express';
-import firebase from 'firebase';
 import firebaseConfig from '../firebaseConfig';
+import getDataToFetch from '../helpers/getDataToFetch';
 import Html from './Html';
+import initialState from './initialState';
 import promise from 'redux-promise-middleware';
 import reducers from '../reducers';
 import thunkMiddleware from 'redux-thunk';
 import { applyMiddleware, createStore } from 'redux';
-import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import initialState from './initialState';
-import getDataToFetch from '../helpers/getDataToFetch';
-import compression from 'compression';
+import { StaticRouter } from 'react-router-dom';
+import 'firebase/firestore';
 
 const app = express()
     .use(compression())

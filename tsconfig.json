@@ -12,6 +12,7 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "moduleResolution": "node",
+        "strictNullChecks": false,
         "lib": [
             "dom",
             "es2015",
