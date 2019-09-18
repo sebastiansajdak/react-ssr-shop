@@ -4,7 +4,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import webpack from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
 
 const common = {
@@ -39,11 +38,6 @@ const common = {
         ],
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
         new CompressionPlugin({
             algorithm: "gzip",
             test: /\.js$|\.css$|\.html$/,
