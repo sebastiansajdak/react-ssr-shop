@@ -1,0 +1,59 @@
+@import '../../../constants/variables.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .left {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 70%;
+
+       .box {
+            width: 48%;
+            height: 150px;
+            margin-bottom: 15px;
+            background: $placeholderColor;
+            animation: pulse 1s infinite ease-in-out;
+        }
+    }
+
+    .right {
+        width: 30%;
+        padding-left: 15px;
+
+        .title {
+            height: 30px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            width: 30%;
+            height: 30px;
+            margin-bottom: 50px;
+        }
+
+        .description {
+            height: 100px;
+        }
+
+        .line {
+            background: $placeholderColor;
+            animation: pulse 1s infinite ease-in-out;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba($placeholderColor, 0.1)
+        }
+        50% {
+            background-color: rgba($placeholderColor, 0.3)
+        }
+        100% {
+            background-color: rgba($placeholderColor, 0.1)
+        }
+    }
+}

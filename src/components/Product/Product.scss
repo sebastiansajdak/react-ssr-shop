@@ -1,0 +1,31 @@
+.wrapper {
+    padding: 15px;
+    
+    .img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    .titleWrapper {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 400;
+
+        .title {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+
+        .current {
+            font-weight: 600;
+        }
+    }
+}

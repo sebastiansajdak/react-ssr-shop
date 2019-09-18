@@ -1,0 +1,7 @@
+.productWrapper {
+    width: 33.33%;
+
+    @media screen and (max-width: 768px) {
+        width: 50%;
+    }
+}

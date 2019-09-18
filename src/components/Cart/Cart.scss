@@ -1,0 +1,44 @@
+@import '../../constants/variables.scss';
+
+.wrapper {
+    width: 1024px;
+    min-height: 500px;
+    padding: 30px 15px 0;
+    margin: 0 auto 60px;
+
+    .title {
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .goToCheckout {
+        display: flex;
+        justify-content: flex-end;
+
+        .goToCheckoutBtn {
+            cursor: pointer;
+            background: none;
+            padding: 15px 30px;
+            border: 1px solid $firstColor;
+            border-radius: 5px;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: .4px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 400px) {
+        .goToCheckout {
+            .goToCheckoutBtn {
+                width: 100%;
+            }
+        }
+    }
+}

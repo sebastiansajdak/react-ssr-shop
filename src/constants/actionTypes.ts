@@ -1,0 +1,17 @@
+export const CART_INIT = 'CART_INIT';
+export const CART_COUNT_SET = 'CART_COUNT_SET';
+export const CART_COUNT_INCREASE = 'CART_COUNT_INCREASE';
+export const CART_COUNT_DECREASE = 'CART_COUNT_DECREASE';
+export const CART_ADD = 'CART_ADD';
+export const CART_REMOVE = 'CART_REMOVE';
+export const CART_CLEAR = 'CART_CLEAR';
+
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+
+export const FILTERS_SET_NAME = 'FILTERS_SET_NAME';
+export const FILTERS_SET_CATEGORY = 'FILTERS_SET_CATEGORY';
+export const FILTERS_CLEAR = 'FILTERS_CLEAR';
+
+export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const GET_PRODUCT = 'GET_PRODUCT';
+export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';

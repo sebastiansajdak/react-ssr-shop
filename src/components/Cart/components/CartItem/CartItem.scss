@@ -1,0 +1,101 @@
+@import '../../../../constants/variables.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+
+    .imgWrapper {
+        width: 15%;
+        margin-right: 15px;
+
+        .img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    }
+
+    .rightSide {
+        width: 85%;
+
+        .top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e8e8e8;
+
+            .titleWrapper {
+                width: 80%;
+                font-weight: 600;
+            }
+        
+            .priceWrapper {
+                width: 20%;
+                text-align: right;
+            }
+        }
+
+        .bottom {
+            display: flex;
+            align-items: flex-start;
+
+            .description {
+                width: 70%;
+                font-weight: 100;
+                line-height: 1.4;
+                letter-spacing: .5px;
+                font-size: 12px;
+            }
+
+            .removeWrapper {
+                width: 30%;
+                text-align: right;
+
+                button {
+                    padding: 5px;
+                    color: #000;
+                    border: 1px solid $firstColor;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    background: none;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .imgWrapper {
+            width: 30%;
+        }
+
+        .rightSide {
+            width: 70%;
+            
+            .top {
+                .titleWrapper {
+                    width: 70%;
+                }
+
+                .priceWrapper {
+                    width: 30%;
+                }
+            }
+
+            .bottom {
+                flex-wrap: wrap;
+
+                .description {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .removeWrapper {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import '../../constants/variables.scss';
+
+.wrapper {
+    .subtitle {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-weight: 100;
+        font-size: 14px;
+
+        .clearBtn {
+            color: $firstColor;
+            cursor: pointer;
+        }
+    }
+
+    .section {
+        margin-bottom: 15px;
+
+        .filterInput {
+            width: 100%;
+            height: 40px;
+            background: none;
+            border: 1px solid #ffe6ce;
+            border-radius: 5px;
+            padding: 5px;
+            color: #808080;
+        }
+
+        .categories {
+            .listItem {
+                .listItemBtn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 40px;
+                    margin-bottom: 5px;
+                    border-radius: 5px;
+                    background: #ffecce;
+                    font-size: 14px;
+                    color: #525252;
+                    text-transform: uppercase;
+                    letter-spacing: .5px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

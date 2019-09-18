@@ -1,0 +1,21 @@
+.wrapper {
+    margin-bottom: 30px;
+    text-align: right;
+    font-weight: 100;
+    font-size: 14px;
+
+    .row {
+        margin-bottom: 5px;
+
+        .price {
+            width: 100px;
+            display: inline-block;
+        }
+    }
+
+    .total {
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}

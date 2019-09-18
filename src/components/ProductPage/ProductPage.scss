@@ -1,0 +1,115 @@
+@import '../../constants/variables.scss';
+
+.wrapper {
+    width: 1024px;
+    margin: 0 auto 60px auto;
+    padding: 30px 15px 0;
+
+    .inner {
+        display: flex;
+
+        .imgSection {
+            width: 70%;
+    
+            .imgWrapper {
+                display: inline-block;
+                padding: 0 15px 15px 0;
+                width: 50%;
+    
+                .img {
+                    max-width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .descSection {
+            width: 30%;
+    
+            .title {
+                margin-bottom: 15px;
+                font-size: 24px;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+    
+            .price {
+                font-weight: 100;
+                margin-bottom: 40px;
+    
+                .current {
+                    font-size: 26px;
+                }
+            }
+    
+            .desc {
+                margin-bottom: 40px;
+                font-weight: 100;
+                font-size: 14px;
+                line-height: 1.6;
+                letter-spacing: .5px;
+            }
+    
+            .addToCart {
+                padding: 15px 30px;
+                background: none;
+                border: 1px solid $firstColor;
+                border-radius: 5px;
+                color: $firstColor;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: .4px;
+                cursor: pointer;
+
+                &[disabled] {
+                    border-color: #9a9a9a;
+                    color: #9a9a9a;
+                }
+            }
+
+            .addedToCartInfo {
+                font-size: 14px;
+                margin: 10px 0;
+                color: $firstColor;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        .inner {
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+
+            .imgSection {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 100%;
+    
+                .imgWrapper {
+                    width: 48%;
+                    padding: 0 0 15px;
+                }
+            }
+    
+            .descSection {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .inner {
+            .descSection {
+                .addToCart {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@import '../../../constants/variables.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+
+    .box {
+        width: 24%;
+        height: 130px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background: $placeholderColor;
+        animation: pulse 1s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba($placeholderColor, 0.1)
+        }
+        50% {
+            background-color: rgba($placeholderColor, 0.3)
+        }
+        100% {
+            background-color: rgba($placeholderColor, 0.1)
+        }
+    }
+}

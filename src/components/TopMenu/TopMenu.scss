@@ -1,0 +1,70 @@
+@import '../../constants/variables.scss';
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    background: #fff;
+    box-shadow: 2px 2px 5px #eee;
+    height: 50px;
+    width: 100%;
+    letter-spacing: .5px;
+
+    .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1024px;
+        height: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+
+        .logo {
+            .img {
+                max-height: 50px;
+            }
+        }
+    
+        .menuWrapper {
+            .list {
+                display: flex;
+                font-size: 14px;
+                text-transform: uppercase;
+    
+                .listItem {
+                    margin-left: 20px;
+
+                    .link {
+                        text-decoration: none;
+                        color: #6d6d6d;
+                    }
+                    
+                    .cart {
+                        position: relative;
+                        margin-right: 15px;
+
+                        .count {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            top: -3px;
+                            right: -15px;
+                            background: $firstColor;
+                            width: 16px;
+                            height: 12px;
+                            border-radius: 12px;
+                            font-size: 8px;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .inner {
+            width: 100%;
+        }
+    }
+}
