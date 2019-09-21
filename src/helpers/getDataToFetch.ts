@@ -11,11 +11,10 @@ export default (serverReq: express.Request, dispatch: Dispatch): any => {
 
     const componentsWithServerFetch = Routes
         .filter((route: IRoute) => matchPath(serverReq.url, route))
-        .map((route: IRoute) => route.component)
-        .filter((comp: IRoute['component']) => comp.serverFetch )
+        .map((route: IRoute) => route.serverFetch);
 
-    componentsWithServerFetch.forEach((comp: IRoute['component']) => {
-        comp.serverFetch.forEach((method: any) => {
+    componentsWithServerFetch.forEach((methods: any) => {
+        methods.forEach((method: any) => {
             dataToFetch.push(dispatch(method(requiredData[method.name])))
         });
     });

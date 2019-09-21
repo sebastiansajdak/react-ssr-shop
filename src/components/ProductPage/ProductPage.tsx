@@ -113,6 +113,4 @@ const ProductPage = ({
     )
 }
 
-ProductPage.serverFetch = [apiGetProductById];
-
 export default ProductPage;

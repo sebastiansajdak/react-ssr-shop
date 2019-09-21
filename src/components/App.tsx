@@ -5,7 +5,9 @@ import Home from './Home';
 import ProductPage from './ProductPage';
 import ScrollToTop from '../helpers/ScrollToTop';
 import TopMenu from './TopMenu';
+import { apiGetAllProducts, apiGetProductById } from '../actions/products';
 import { apiGetCartProducts, setCartCount } from '../actions/cart';
+import { getCategories } from '../actions/categories';
 import { IRoute, IStore } from '../types';
 import { Route, Switch } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
@@ -17,16 +19,19 @@ export const Routes: IRoute[] = [
         path: '/',
         component: Home,
         exact: true,
+        serverFetch: [ apiGetAllProducts, getCategories ],
     },
     {
         path: '/product/:id',
         component: ProductPage,
         exact: true,
+        serverFetch: [ apiGetProductById ],
     },
     {
         path: '/cart',
         component: Cart,
         exact: true,
+        serverFetch: [ apiGetCartProducts ],
     }
 ];
 

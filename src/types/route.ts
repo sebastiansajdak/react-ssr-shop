@@ -1,5 +1,6 @@
 export default interface IRoute {
     path: string;
-    component: React.ComponentType<any> & { serverFetch: any[] };
+    component: React.ComponentType<any>;
     exact: boolean;
+    serverFetch?: any;
 }

@@ -37,8 +37,11 @@ const Cart = () => {
         dispatch(removeProductFromCart(id));
     }
 
-    const subtotal = round(sumBy(products, 'currentPrice'), 2);
-    const total = round(subtotal + 10, 2);
+    const subtotal = React.useMemo(
+        () =>round(sumBy(products, 'currentPrice'), 2),
+        [products],
+    );
+    const total = React.useMemo(() => round(subtotal + 10, 2), [subtotal]);
 
     return (
         <section className={styles.wrapper}>
@@ -73,7 +76,5 @@ const Cart = () => {
         </section>
     )
 }
-
-Cart.serverFetch = [apiGetCartProducts];
 
 export default Cart;

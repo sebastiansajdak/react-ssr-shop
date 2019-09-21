@@ -1,32 +1,65 @@
 import * as React from 'react';
 import * as styles from './Filters.scss';
 import FiltersPlaceholder from '../Placeholders/Filters';
-import { ICategory } from '../../types';
+import { apiGetFilteredProducts } from '../../actions/products';
+import {
+    clearFilters,
+    setFilterCategory,
+    setFilterName,
+} from '../../actions/filters';
+import { getCategories } from '../../actions/categories';
+import { ICategory, IStore } from '../../types';
+import { useDispatch, useSelector } from 'react-redux';
 
-interface IProps {
-    filterInputValue: string;
-    categories: ICategory[];
-    filterEvent: (name?: string, category?: string) => void;
-    clearAction: () => void;
-    isFetching: boolean;
-}
+const Filters = () => {
+    const {
+        items,
+        isFetching,
+    } = useSelector((state: IStore) => state.categories);
+    const filtersState = useSelector((state: IStore) => state.filters);
+    const dispatch = useDispatch();
 
-const Filters = ({
-    filterInputValue,
-    categories,
-    filterEvent,
-    clearAction,
-    isFetching
-}: IProps) =>
-    !isFetching ?
+    React.useEffect(() => {
+        if (!items.length) {
+            dispatch(getCategories());
+        }
+
+        return () => dispatch(clearFilters())
+    }, []);
+
+    const clearFiltersHandler = React.useCallback(() => {
+        const action = clearFilters();
+
+        dispatch(action);
+        dispatch(apiGetFilteredProducts());
+    }, []);
+
+    const filterEventHandler = React.useCallback((name?: any, category?: string) => {
+        let action = null;
+        let nextName = null;
+        let nextCategory = null;
+        if (name !== null) {
+            nextName = name.target.value;
+            nextCategory = filtersState.category;
+            action = setFilterName(nextName);
+        } else {
+            nextName = filtersState.name;
+            nextCategory = category;
+            action = setFilterCategory(nextCategory);
+        }
+
+        dispatch(action);
+        dispatch(apiGetFilteredProducts(nextName, nextCategory));
+    }, [filtersState.name, filtersState.category]);
+
+    return (
+        !isFetching ?
         <section className={styles.wrapper}>
             <div className={styles.section}>
                 <h3 className={styles.subtitle}>Filter by name</h3>
                 <input
-                    value={filterInputValue}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        filterEvent(event.target.value)
-                    }
+                    value={filtersState.name}
+                    onChange={filterEventHandler}
                     className={styles.filterInput}
                     type='text'
                     title='Type search term here'
@@ -38,22 +71,22 @@ const Filters = ({
                     Categories:
                     <span
                         className={styles.clearBtn}
-                        onClick={clearAction}
+                        onClick={clearFiltersHandler}
                     >
                         Clear filters
                     </span>
                 </h3>
                 <ul className={styles.categories}>
-                    {categories.map((category: ICategory) =>
+                    {items.map((item: ICategory) =>
                         <li
-                            key={category.id}
+                            key={item.id}
                             className={styles.listItem}
                         >
                             <span
                                 className={styles.listItemBtn}
-                                onClick={() => filterEvent(null, category.key)}
+                                onClick={() => filterEventHandler(null, item.key)}
                             >
-                                {category.name}
+                                {item.name}
                             </span>
                         </li>
                     )}
@@ -62,5 +95,7 @@ const Filters = ({
         </section>
         :
         <FiltersPlaceholder />
+    );
+}
 
 export default React.memo(Filters);
